@@ -1,5 +1,5 @@
-Team Name:305087992
-Member 1 :Danning Yu:danningyu@ucla.edu
+Team Name:
+Member 1 :Danning Yu:
 Measuring performance with gettimeofday().
 
 Testing mm malloc
