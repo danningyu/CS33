@@ -1,0 +1,181 @@
+Team Name:305087992
+Member 1 :Danning Yu:danningyu@ucla.edu
+Measuring performance with gettimeofday().
+
+Testing mm malloc
+Reading tracefile: short1-bal.rep
+Checking mm_malloc for correctness, 
+
+START PROGRAM---------------------------------------START PROGRAM
+mm_init heapStart start value (ZERO): 0xf61d2008
+mm_init size of heap: 32
+mm_init heapStart value: 0xf61d2018
+mm_init heap value: 9
+-----CALLING MALLOC-----
+	DB size of heap before allocation: 32
+	DB amount to allocate (amt requested, round to 8): 2040
+Malloc CASE 2
+CALLING PLACE
+	printing allocated node
+	DB allocated node, starting at 0xf61d2028 	DB header raw: 0x7f9 	Payload starts at: 0xf61d2030 	DB payload size: 2040 	DB block size: 2056
+PRINTING ALL FREE NODES
+Total of blocks in list: 0
+-----CALLING MALLOC-----
+	DB size of heap before allocation: 2088
+	DB amount to allocate (amt requested, round to 8): 2040
+Malloc CASE 2
+CALLING PLACE
+	printing allocated node
+	DB allocated node, starting at 0xf61d2830 	DB header raw: 0x7f9 	Payload starts at: 0xf61d2838 	DB payload size: 2040 	DB block size: 2056
+PRINTING ALL FREE NODES
+Total of blocks in list: 0
+-----CALLING FREE-----
+	DB Size to free: 2040
+	DB FREE zero'd header and footer: H:f61d2830, *H:7f8, F:f61d3030, *F:7f8
+	After insertion, next = NULL, prev = NULL: next:f61d2838, prev:f61d2840
+	list size after insertBlock: 1
+COALESCING FUNCTION
+	0xf61d3038 0xf61d2828 1 0 0 2040 2040
+coalesce, case 1
+	printing free node
+	DB header raw: 0x7f8 	Payload starts at: 0xf61d2838 	DB payload size: 2040 	DB block size: 2056 	DB next ptr: 0x0 	DB prev ptr: 0x0 
+-----CALLING MALLOC-----
+	DB size of heap before allocation: 4144
+	DB amount to allocate (amt requested, round to 8): 48
+Freelist points to 0xf61d2838
+	Searching for a match...at 0xf61d2838
+	Size of selected block: 2040
+	Malloc CASE 1
+malloc precalling place
+CALLING PLACE
+	Splitting a block
+	printing allocated node
+	DB allocated node, starting at 0xf61d2830 	DB header raw: 0x31 	Payload starts at: 0xf61d2838 	DB payload size: 48 	DB block size: 64
+CALLING REMOVEBLOCK
+	removeblock found only one node (CASE 0)
+	list size after removeBlock: 0
+	printing free node
+	DB header raw: 0x7c8 	Payload starts at: 0xf61d2878 	DB payload size: 1992 	DB block size: 2008 	DB next ptr: 0x1 	DB prev ptr: 0x1 
+	After insertion, next = NULL, prev = NULL: next:f61d2878, prev:f61d2880
+	list size after insertBlock: 1
+post calling place
+	printing allocated node
+	DB allocated node, starting at 0xf61d2830 	DB header raw: 0x31 	Payload starts at: 0xf61d2838 	DB payload size: 48 	DB block size: 64
+PRINTING ALL FREE NODES
+Node address: 0xf61d2878, header: 0xffffffc8, payload size: 1992
+	next=NULL, prev=NULL: next:f61d2878, prev:f61d2880
+Total of blocks in list: 1
+-----CALLING MALLOC-----
+	DB size of heap before allocation: 4144
+	DB amount to allocate (amt requested, round to 8): 4072
+Freelist points to 0xf61d2878
+	Searching for a match...at 0xf61d2878
+	Size of selected block: 1992
+Malloc CASE 2
+CALLING PLACE
+	printing allocated node
+	DB allocated node, starting at 0xf61d3038 	DB header raw: 0xfe9 	Payload starts at: 0xf61d3040 	DB payload size: 4072 	DB block size: 4088
+PRINTING ALL FREE NODES
+Node address: 0xf61d2878, header: 0xffffffc8, payload size: 1992
+	next=NULL, prev=NULL: next:f61d2878, prev:f61d2880
+Total of blocks in list: 1
+-----CALLING FREE-----
+	DB Size to free: 4072
+	DB FREE zero'd header and footer: H:f61d3038, *H:fe8, F:f61d4028, *F:fe8
+	After insertion, prev = NULL: next:f61d3040, *next:f61d2878, prev:f61d3048
+	list size after insertBlock: 2
+COALESCING FUNCTION
+	0xf61d4030 0xf61d3030 0 0 0 2040 4072
+Coalesce, case 3	printing free node
+	DB header raw: 0xfe8 	Payload starts at: 0xf61d3040 	DB payload size: 4072 	DB block size: 4088 	DB next ptr: 0x78 	DB prev ptr: 0x0 
+	printing allocated node
+	DB allocated node, starting at 0xf61d2830 	DB header raw: 0x31 	Payload starts at: 0xf61d2838 	DB payload size: 48 	DB block size: 64
+CALLING REMOVEBLOCK
+	removeblock found at the start (CASE 1)
+	list size after removeBlock: 1
+	printing free node
+	DB header raw: 0x17f0 	Payload starts at: 0xf61d2838 	DB payload size: 6128 	DB block size: 6144 	DB next ptr: 0x2 	DB prev ptr: 0x2 
+	list size after coalesce: 0
+	printing free node
+	DB header raw: 0x17f0 	Payload starts at: 0xf61d2838 	DB payload size: 6128 	DB block size: 6144 	DB next ptr: 0x2 	DB prev ptr: 0x2 
+-----CALLING MALLOC-----
+	DB size of heap before allocation: 8232
+	DB amount to allocate (amt requested, round to 8): 4072
+Freelist points to 0xf61d2878
+	Searching for a match...at 0xf61d2878
+	Size of selected block: 1992
+Malloc CASE 2
+CALLING PLACE
+	printing allocated node
+	DB allocated node, starting at 0xf61d4030 	DB header raw: 0xfe9 	Payload starts at: 0xf61d4038 	DB payload size: 4072 	DB block size: 4088
+PRINTING ALL FREE NODES
+Node address: 0xf61d2878, header: 0xffffffc8, payload size: 1992
+	next=NULL, prev=NULL: next:f61d2878, prev:f61d2880
+Total of blocks in list: 1
+-----CALLING FREE-----
+	DB Size to free: 2040
+	DB FREE zero'd header and footer: H:f61d2028, *H:7f8, F:f61d2828, *F:7f8
+	After insertion, prev = NULL: next:f61d2030, *next:f61d2878, prev:f61d2038
+	list size after insertBlock: 1
+COALESCING FUNCTION
+	0xf61d2830 0xf61d2020 1 0 6128 0 2040
+coalesce, case 1
+	printing free node
+	DB header raw: 0x7f8 	Payload starts at: 0xf61d2030 	DB payload size: 2040 	DB block size: 2056 	DB next ptr: 0x78 	DB prev ptr: 0x0 
+-----CALLING FREE-----
+	DB Size to free: 6128
+	DB FREE zero'd header and footer: H:f61d2830, *H:17f0, F:f61d4028, *F:17f0
+	After insertion, prev = NULL: next:f61d2838, *next:f61d2030, prev:f61d2840
+	list size after insertBlock: 2
+COALESCING FUNCTION
+	0xf61d4030 0xf61d2828 0 1 4072 2040 6128
+Coalesce, case 3	printing free node
+	DB header raw: 0x17f0 	Payload starts at: 0xf61d2838 	DB payload size: 6128 	DB block size: 6144 	DB next ptr: 0x30 	DB prev ptr: 0x0 
+	printing free node
+	DB header raw: 0x7f8 	Payload starts at: 0xf61d2030 	DB payload size: 2040 	DB block size: 2056 	DB next ptr: 0x78 	DB prev ptr: 0x38 
+CALLING REMOVEBLOCK
+	removeblock found at the start (CASE 1)
+	list size after removeBlock: 1
+	printing free node
+	DB header raw: 0x1ff8 	Payload starts at: 0xf61d2030 	DB payload size: 8184 	DB block size: 8200 	DB next ptr: 0x78 	DB prev ptr: 0x0 
+	list size after coalesce: 0
+	printing free node
+	DB header raw: 0x1ff8 	Payload starts at: 0xf61d2030 	DB payload size: 8184 	DB block size: 8200 	DB next ptr: 0x78 	DB prev ptr: 0x0 
+-----CALLING MALLOC-----
+	DB size of heap before allocation: 12320
+	DB amount to allocate (amt requested, round to 8): 4072
+Freelist points to 0xf61d2030
+	Searching for a match...at 0xf61d2030
+	Size of selected block: 8184
+	Malloc CASE 1
+malloc precalling place
+CALLING PLACE
+	Splitting a block
+	printing allocated node
+	DB allocated node, starting at 0xf61d2028 	DB header raw: 0xfe9 	Payload starts at: 0xf61d2030 	DB payload size: 4072 	DB block size: 4088
+CALLING REMOVEBLOCK
+	removeblock found at the start (CASE 1)
+	list size after removeBlock: -1
+	printing free node
+	DB header raw: 0x1010 	Payload starts at: 0xf61d3028 	DB payload size: 4112 	DB block size: 4128 	DB next ptr: 0x1 	DB prev ptr: 0xfffffff8 
+	After insertion, prev = NULL: next:f61d3028, *next:f61d2878, prev:f61d3030
+	list size after insertBlock: 0
+post calling place
+	printing allocated node
+	DB allocated node, starting at 0xf61d2028 	DB header raw: 0xfe9 	Payload starts at: 0xf61d2030 	DB payload size: 4072 	DB block size: 4088
+PRINTING ALL FREE NODES
+Node address: 0xf61d3028, header: 0x10, payload size: 4112
+	prev = NULL: next:f61d3028, *next:f61d2878, prev:f61d3030
+Node address: 0xf61d2878, header: 0xffffffc8, payload size: 1992
+	next=NULL, prev=NULL: next:f61d2878, prev:f61d2880
+Total of blocks in list: 2
+-----CALLING FREE-----
+	DB Size to free: 4072
+	DB FREE zero'd header and footer: H:f61d4030, *H:fe8, F:f61d5020, *F:fe8
+	After insertion, prev = NULL: next:f61d4038, *next:f61d3028, prev:f61d4040
+	list size after insertBlock: 1
+COALESCING FUNCTION
+	0xf61d5028 0xf61d4028 0 0 0 6128 4072
+coalesce, case 1
+	printing free node
+	DB header raw: 0xfe8 	Payload starts at: 0xf61d4038 	DB payload size: 4072 	DB block size: 4088 	DB next ptr: 0x2
