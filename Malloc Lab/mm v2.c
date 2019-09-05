@@ -1,5 +1,5 @@
 /*
- * Danning Yu, 305087992
+ * Danning Yu
    CS 33 Discussion 1A
    Method: explicit free list
    Malloc will search through list of free nodes and find the best fit, splitting a block if necessary
