@@ -21,11 +21,11 @@
   ********************************************************/
 team_t team = {
 	/* Your UID */
-	"305087992",
+	"",
 	/* Your full name */
 	"Danning Yu",
 	/* Your email address */
-	"danningyu@ucla.edu",
+	"",
 	/* Leave blank */
 	"",
 	/* Leave blank */
